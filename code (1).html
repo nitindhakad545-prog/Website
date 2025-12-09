@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Happy V Café - Fresh Brews, Warm Moments. Enjoy premium coffee, snacks, and desserts in a cozy atmosphere.">
+    <meta name="keywords" content="café, coffee, Happy V Café, Neemuch, coffee shop, menu, reviews">
+    <title>Happy V Café - Fresh Brews, Warm Moments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #4a4a4a;
+            background-color: #f5f5dc; /* Cream background */
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3 {
+            color: #8b4513; /* Brown */
+        }
+        a {
+            text-decoration: none;
+            color: #8b4513;
+        }
+        button {
+            background-color: #8b4513;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #a0522d;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #8b4513;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #a0522d;
+        }
+
+        /* Home Section */
+        #home {
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80'); /* Coffee cup image */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        #home .hero-content {
+            background-color: rgba(0,0,0,0.5);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        #home h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        #home p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        #home .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* About Us */
+        #about {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        #about .content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        #about img {
+            width: 50%;
+            border-radius: 10px;
+        }
+        #about .text {
+            flex: 1;
+        }
+
+        /* Menu */
+        #menu {
+            padding: 80px 0;
+            background-color: #f5f5dc;
+        }
+        #menu .categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        #menu .category {
+            margin: 0 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        #menu .category.active {
+            color: #8b4513;
+        }
+        #menu .items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        #menu .item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        /* Gallery */
+        #gallery {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        #gallery .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        #gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* Reviews */
+        #reviews {
+            padding: 80px 0;
+            background-color: #f5f5dc;
+        }
+        #reviews .review {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Contact */
+        #contact {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        #contact .info {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        #contact .details {
+            flex: 1;
+        }
+        #contact iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #8b4513;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        footer .social {
+            margin-top: 10px;
+        }
+        footer .social a {
+            margin: 0 10px;
+            font-size: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Simple hide for mobile; add hamburger if needed */
+            }
+            #home h1 {
+                font-size: 36px;
+            }
+            #home p {
+                font-size: 18px;
+            }
+            #about .content {
+                flex-direction: column;
+            }
+            #about img {
+                width: 100%;
+            }
+            #contact .info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Happy V Café</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Visit Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="hero-content fade-in">
+            <h1>Welcome to Happy V Café</h1>
+            <p>Fresh Brews, Warm Moments</p>
+            <div class="buttons">
+                <button>Order Now</button>
+                <button>Visit Us</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="container fade-in">
+        <h2>About Us</h2>
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Café interior">
+            <div class="text">
+                <p>Happy V Café was born from a passion for exceptional coffee and creating a warm, inviting space for our community. Our story began in Neemuch, where we source the finest beans and craft each cup with care.</p>
+                <p>Customers love us for our friendly service, cozy atmosphere, and delicious offerings that make every visit memorable.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="container fade-in">
+        <h2>Our Menu</h2>
+        <div class="categories">
+            <div class="category active" data-category="hot">Hot Coffee</div>
+            <div class="category" data-category="cold">Cold Coffee</div>
+            <div class="category" data-category="snacks">Snacks</div>
+            <div class="category" data-category="desserts">Desserts</div>
+        </div>
+        <div class="items">
+            <div class="item" data-category="hot">
+                <h3>Cappuccino</h3>
+                <p>₹149</p>
+            </div>
+            <div class="item" data-category="hot">
+                <h3>Espresso</h3>
+                <p>₹129</p>
+            </div>
+            <div class="item" data-category="cold">
+                <h3>Cold Brew</h3>
+                <p>₹199</p>
+            </div>
+            <div class="item" data-category="snacks">
+                <h3>Veg Sandwich</h3>
+                <p>₹129</p>
+            </div>
+            <div class="item" data-category="desserts">
+                <h3>Brownie</h3>
+                <p>₹99</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="container fade-in">
+        <h2>Gallery</h2>
+        <div class="grid">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Coffee">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Café">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Coffee beans">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Latte art">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Café interior">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Coffee cup">
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dessert">
+            <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Café ambiance">
+        </div>
+    </section>
+
+    <section id="reviews" class="container fade-in">
+        <h2>Customer Reviews</h2>
+        <div class="review">
+            <p>"Amazing coffee and such a cozy place! Highly recommend the cappuccino."</p>
+            <cite>- Priya S.</cite>
+        </div>
+        <div class="review">
+            <p>"The brownies are to die for. Happy V Café is my go-to spot."</p>
+            <cite>- Rajesh K.</cite>
+        </div>
+        <div class="review">
+            <p>"Friendly staff and great ambiance. Perfect for a quick break."</p>
+            <cite>- Anjali M.</cite>
+        </div>
+    </section>
+
+    <section id="contact" class="container fade-in">
+        <h2>Visit Us</h2>
+        <div class="info">
+            <div class="details">
+                <p><strong>Address:</strong> Gali No. 4, Shiv Colony, Neemuch, M.P.</p>
+                <p><strong>Phone:</strong> +91 9876543210</p>
+                <p><strong>Opening Hours:</strong> 9 AM – 10 PM</p>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.123456789012!2d75.123456789!3d22.987654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDU5JzE1LjUiTiA3NcKwMDcnMjQuMyJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>Happy V Café © 2025</p>
+        <div class="social">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+        </div>
+    </footer>
+
+    <script>
+        // Simple menu filter
+        const categories = document.querySelectorAll('.category');
+        const items = document.querySelectorAll('.item');
+
+        categories.forEach(cat => {
+            cat.addEventListener('click', () => {
+                categories.forEach(c => c.classList.remove('active'));
+                cat.classList.add('active');
+                const category = cat.getAttribute('data-category');
+                items.forEach(item => {
+                    if (item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade-in animation on scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
